@@ -1,5 +1,25 @@
 package jm.task.core.jdbc.util;
 
-public class Util {
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+public class Util  {
+    private static final String URL = "jdbc:mysql://localhost:3306/mydb?autoReconnect=true&useSSL=false";
+    private static final String LOGIN = "root";
+    private static final String PASSWORD = "Vbifyz1995";
+
+    public static Connection connect() throws SQLException {
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+
+        return DriverManager.getConnection(URL,LOGIN,PASSWORD);
+    }
     // реализуйте настройку соеденения с БД
 }
