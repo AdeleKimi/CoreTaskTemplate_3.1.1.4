@@ -10,16 +10,22 @@ public class Util  {
     private static final String LOGIN = "root";
     private static final String PASSWORD = "Vbifyz1995";
 
-    public static Connection connect() throws SQLException {
+    public static Connection connect() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
 
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
+        Connection connection = null;
+        try {
+            connection = DriverManager.getConnection(URL,LOGIN,PASSWORD);
+        }catch (SQLException e) {
+            e.printStackTrace();
+        }
 
 
-        return DriverManager.getConnection(URL,LOGIN,PASSWORD);
+        return connection;
     }
     // реализуйте настройку соеденения с БД
 }
