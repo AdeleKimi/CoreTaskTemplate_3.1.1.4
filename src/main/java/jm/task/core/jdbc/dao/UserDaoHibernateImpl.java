@@ -20,7 +20,7 @@ public class UserDaoHibernateImpl implements UserDao {
     @Override
     public void createUsersTable() {
         session = Util.getSessionFactory().openSession();
-        Query query = session.createSQLQuery("CREATE TABLE Users(userId INT NOT NULL AUTO_INCREMENT PRIMARY KEY, " +
+        Query query = session.createSQLQuery("CREATE TABLE IF NOT EXISTS Users(userId INT NOT NULL AUTO_INCREMENT PRIMARY KEY, " +
                 " userName varchar(45) not null ," +
                 " userLastName varchar(45) not null ," +
                 " userAge TINYINT(8) not null )  ");

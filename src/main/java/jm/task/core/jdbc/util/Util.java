@@ -75,5 +75,9 @@ public class Util {
         }
         return connection;
     }
+
+    public static void close(){
+        getSessionFactory().close();
+    }
     // реализуйте настройку соеденения с БД
 }

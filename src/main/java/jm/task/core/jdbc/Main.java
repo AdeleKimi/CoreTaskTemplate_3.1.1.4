@@ -40,6 +40,7 @@ public class Main {
         userService.cleanUsersTable();
         userService.dropUsersTable();
 
+        Util.close();
         // реализуйте алгоритм здесь
     }
 }
